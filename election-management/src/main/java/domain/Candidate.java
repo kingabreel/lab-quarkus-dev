@@ -1,4 +1,11 @@
 package domain;
 
-public record Candidate() {
+import java.util.Optional;
+
+public record Candidate(String id,
+                        String givenName,
+                        String familyName,
+                        String email,
+                        Optional<String> tel,
+                        Optional<String> job) {
 }
