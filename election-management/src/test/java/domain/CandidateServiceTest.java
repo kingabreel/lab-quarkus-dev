@@ -33,17 +33,17 @@ public class CandidateServiceTest {
     }
 
     @Test
-    void findAll(){
-        List<Candidate> candidates = Instancio.stream(Candidate.class).limit(10)
-                .toList();
+    void findAll() {
+        var candidates = Instancio.stream(Candidate.class).limit(10).toList();
+
         when(repository.findAll()).thenReturn(candidates);
 
-        List<Candidate> result = service.findAll();
+        var result = service.findAll();
 
         verify(repository).findAll();
         verifyNoMoreInteractions(repository);
 
-        assertEquals(candidates, result);
+        assertEquals(result, candidates);
     }
 
     @Test
@@ -61,7 +61,7 @@ public class CandidateServiceTest {
     }
 
     @Test
-    void findById_wherCandidateIsNotFound(){
+    void findById_whenCandidateIsNotFound(){
         Candidate candidate = Instancio.create(Candidate.class);
 
         when(repository.findById(candidate.id())).thenReturn(Optional.empty());
