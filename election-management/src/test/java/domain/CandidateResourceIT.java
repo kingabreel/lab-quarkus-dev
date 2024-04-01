@@ -23,7 +23,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class CandidateResourceIT {
 
     //Testes de integração
-
     @Test
     void create() {
         var in = Instancio.create(CreateCandidate.class);
